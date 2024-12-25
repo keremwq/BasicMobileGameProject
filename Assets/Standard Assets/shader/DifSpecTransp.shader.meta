@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cb9fdbd2de4756341a9dd0a324f17b42
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 10010
+  packageName: GA Falling Down
+  packageVersion: 1.0
+  assetPath: Assets/Standard Assets/shader/DifSpecTransp.shader
+  uploadId: 28578

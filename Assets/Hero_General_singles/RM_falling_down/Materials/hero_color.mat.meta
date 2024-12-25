@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f5e9569293c1cd54198ac568f656921c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 10010
+  packageName: GA Falling Down
+  packageVersion: 1.0
+  assetPath: Assets/Hero_General_singles/RM_falling_down/Materials/hero_color.mat
+  uploadId: 28578
