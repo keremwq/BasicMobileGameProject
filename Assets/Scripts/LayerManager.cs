@@ -31,6 +31,5 @@ public class LayerManager : MonoBehaviour
     private void LateUpdate()
     {
         cameraManager.HandleAllCMovement();
-        isInteracting = animator.GetBool("isInteracting");
     }
 }

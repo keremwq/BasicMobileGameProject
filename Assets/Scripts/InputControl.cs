@@ -16,6 +16,8 @@ public class InputControl : MonoBehaviour
     public float horizontalInput;
 
     public bool b_Input;
+
+    public bool canJump = true;
     public bool jump_Input = false;
     void Start()
     {
@@ -85,8 +87,12 @@ public class InputControl : MonoBehaviour
     {
         if (jump_Input)
         {
+            if (canJump)
+            {
+                canJump = false;
+                playerLocalMotion.HandleJumping();
+            }
             jump_Input = false;
-            playerLocalMotion.HandleJumping();
         }
     }
 }
