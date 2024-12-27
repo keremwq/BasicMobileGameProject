@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-8039551682988224744
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Double Jump
+  m_Speed: 1.5
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 1
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -5793807499516084442, guid: 5fad9ecdaa1678b408a01f37c5ca69e8, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-7850547578871681414
 AnimatorState:
   serializedVersion: 6
@@ -35,7 +61,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump
-  m_Speed: 1
+  m_Speed: 1.3
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
@@ -103,32 +129,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -3389760758664689643}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-5757323227759488363
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Falling
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400002, guid: 75b825ba4ad1e4d44af4492f685a5033, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -243,26 +243,35 @@ AnimatorStateMachine:
     m_State: {fileID: -6493642919938321058}
     m_Position: {x: 270, y: 70, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -5757323227759488363}
-    m_Position: {x: 270, y: -90, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -6940932240425453911}
     m_Position: {x: 270, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7585449970467275607}
-    m_Position: {x: 500, y: 70, z: 0}
+    m_Position: {x: 530, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3029917419617344494}
-    m_Position: {x: 320, y: 190, z: 0}
+    m_Position: {x: 530, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7297711228293302480}
-    m_Position: {x: 60, y: 190, z: 0}
+    m_Position: {x: 270, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7850547578871681414}
-    m_Position: {x: 60, y: 290, z: 0}
+    m_Position: {x: 270, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1509065108269661152}
-    m_Position: {x: 320, y: 290, z: 0}
+    m_Position: {x: 530, y: 290, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3112089559436249533}
+    m_Position: {x: 530, y: -20, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5303233343542497787}
+    m_Position: {x: 270, y: -80, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8039551682988224744}
+    m_Position: {x: 530, y: -80, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6859971542074016865}
+    m_Position: {x: 40, y: -80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -398,6 +407,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af642882e7c07c40a59b729947736f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1102 &3112089559436249533
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dashing
+  m_Speed: 0.5
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 1
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 3094330708855449807, guid: 357a014fc50a6ae4aa9ea8347010fb60, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &3505364270257527981
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,6 +524,58 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &5303233343542497787
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Falled
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400002, guid: 75b825ba4ad1e4d44af4492f685a5033, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &6859971542074016865
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Falling_jump
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 3094330708855449807, guid: 282cde1477c9b9043b439d1e6f3fde0c, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &7297711228293302480
 AnimatorState:
   serializedVersion: 6
