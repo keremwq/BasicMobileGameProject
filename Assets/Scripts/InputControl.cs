@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class InputControl : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class InputControl : MonoBehaviour
     public bool b_Input;
 
     public bool canJump = true;
+    public bool canDash = true;
     public bool jump_Input = false;
+    private bool dash_Input = false;
+
     void Start()
     {
 
@@ -42,6 +46,8 @@ public class InputControl : MonoBehaviour
             playerControls.PlayerActions.B.performed += i => b_Input = true;
             playerControls.PlayerActions.B.canceled += i => b_Input = false;
             playerControls.PlayerActions.Jump.performed += i => jump_Input = true;
+
+            playerControls.PlayerActions.Dash.performed += i => dash_Input = true;
         }
 
         playerControls.Enable();
@@ -54,6 +60,7 @@ public class InputControl : MonoBehaviour
 
     public void HandleAllInputs()
     {
+        HandleDashInput();
         HandleJumpingInput();
         HandleMovementInput();
         HandleSprintingInput();
@@ -94,5 +101,39 @@ public class InputControl : MonoBehaviour
             }
             jump_Input = false;
         }
+    }
+
+    public void CanJumpTrigger()
+    {
+        StartCoroutine("MakeCanJump");
+    }
+
+    IEnumerator MakeCanJump()
+    {
+        yield return new WaitForSeconds(0.05f);
+        canJump = true;
+    }
+
+    IEnumerator DashCooldown(float secondToWait)
+    {
+
+        yield return new WaitForSeconds(secondToWait);
+        Debug.Log("Dash cooldown triggered!");
+        canDash = true;
+    }
+
+    private void HandleDashInput()
+    {
+        if (dash_Input)
+        {
+            if (canDash)
+            {
+                playerLocalMotion.HandleDash();
+                canDash = false;
+                StartCoroutine("DashCooldown", 5.0f);
+            }
+        }
+
+        dash_Input = false;
     }
 }
