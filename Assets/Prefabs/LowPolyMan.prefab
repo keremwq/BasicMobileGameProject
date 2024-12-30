@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAnimation: 
   changableAnimations: 1
+<<<<<<< HEAD
   lowerDetect: {fileID: 955197244106131160}
   upperDetect: {fileID: 8532210689308504189}
   stepSmooth: 0.05
@@ -1791,6 +1792,12 @@ MonoBehaviour:
   rayCastHeightOffset: 0.95
   maxDistance: 1.1
   minDistance: 2
+=======
+  intAirTimer: 0
+  leapingVelocity: 3
+  fallingVelocity: 33
+  rayCastHeightOffset: 1
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -1799,16 +1806,23 @@ MonoBehaviour:
   isJumping: 0
   isFalling: 0
   cantMove: 0
+<<<<<<< HEAD
   isStair: 0
+=======
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
   walkingSpeed: 1.5
   runningSpeed: 5
   sprintingSpeed: 7
   rotationSpeed: 15
   jumpHeight: 3
+<<<<<<< HEAD
   jumpHeightFirst: 3
   jumpHeightSecond: 4
   gravityIntensity: -3
   jumpCount: 0
+=======
+  gravityIntensity: -3
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
   dashPower: 150
   dashJumpPower: 30
   dashGroundPower: 75
@@ -1848,7 +1862,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
+<<<<<<< HEAD
   m_UseGravity: 0
+=======
+  m_UseGravity: 1
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -1860,7 +1878,11 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4334160262176701383}
+<<<<<<< HEAD
   m_Material: {fileID: 13400000, guid: dcee566b8a4f04d49bb02a84f3d43b2c, type: 2}
+=======
+  m_Material: {fileID: 0}
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

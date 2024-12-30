@@ -37,9 +37,19 @@ public class PlayerLocalMotion : MonoBehaviour
     public bool isJumping = false;
     public bool isFalling = false;
     public bool cantMove = false;
+<<<<<<< HEAD
     public bool isStair = false;
     private bool isDashing = false;
     private bool isRFalling = false;
+=======
+<<<<<<< HEAD
+    public bool isStair = false;
+    private bool isDashing = false;
+    private bool isRFalling = false;
+=======
+    private bool isDashing = false;
+>>>>>>> 0faebdf8a139479fe17335025d219e1d08de4359
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
     private string jumpOrFall = "Fall";
 
     [Header("Movement Speed")]
@@ -213,6 +223,7 @@ public class PlayerLocalMotion : MonoBehaviour
 
         if (Physics.Raycast(raycastOrigin, Vector3.down, out hit, 3f, groundLayer))
         {
+<<<<<<< HEAD
             if (hit.distance > minDistance)
             {
                 ChangeAnimation(jumpOrFall);
@@ -228,15 +239,48 @@ public class PlayerLocalMotion : MonoBehaviour
 
         if (!isGrounded && isRFalling)
         {
+=======
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
             if (!isJumping) { dashPower = dashFallPower; }
             intAirTimer += Time.deltaTime;
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
             playerRigidbody.AddForce(-Vector3.up * fallingVelocity * intAirTimer);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        }
+        Debug.DrawRay(raycastOrigin, Vector3.down * maxDistance, Color.green);
+
+
+        if (Physics.Raycast(raycastOrigin, Vector3.down, out hit, 3f, groundLayer))
+        {
+            if (hit.distance > minDistance)
+            {
+                ChangeAnimation(jumpOrFall);
+                isRFalling = true;
+            }
+
+        }
+        else
+        {
+            ChangeAnimation(jumpOrFall);
+            isRFalling = true;
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
         }
         Debug.DrawRay(raycastOrigin, Vector3.down * maxDistance, Color.green);
 
         if (Physics.Raycast(raycastOrigin, Vector3.down, out hit, maxDistance, groundLayer)) // Ground Controller
         {
+<<<<<<< HEAD
+=======
+=======
+        }
+
+        if (Physics.SphereCast(raycastOrigin, 0.3f, Vector3.down, out hit, 0.5f, groundLayer)) // Ground Controller
+        {
+            Debug.DrawRay(transform.position, Vector3.down, Color.green);
+>>>>>>> 0faebdf8a139479fe17335025d219e1d08de4359
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
             if (!isGrounded)
             {
                 isJumping = false;
@@ -244,10 +288,22 @@ public class PlayerLocalMotion : MonoBehaviour
                 dashPower = dashGroundPower;
                 changableAnimations = true;
                 inputControl.canJump = false;
+<<<<<<< HEAD
                 cantMove = true;
                 inputControl.CanJumpTrigger();
                 if (/*!isStair &&*/ isRFalling)
                     ChangeAnimation("Land", 0.1f, 0.4f - 0.3f);
+=======
+<<<<<<< HEAD
+=======
+                inputControl.CanJumpTrigger();
+                ChangeAnimation("Land", 0.2f, 0.4f - 0.3f);
+>>>>>>> 0faebdf8a139479fe17335025d219e1d08de4359
+                cantMove = true;
+                inputControl.CanJumpTrigger();
+                if (/*!isStair &&*/ isRFalling)
+                    ChangeAnimation("Land", 0.2f, 0.4f - 0.3f);
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
                 else
                     cantMove = false;
                 isRFalling = false;
@@ -264,6 +320,7 @@ public class PlayerLocalMotion : MonoBehaviour
         }
         else
         {
+            ChangeAnimation(jumpOrFall);
             isFalling = true;
             isGrounded = false;
         }
@@ -336,6 +393,76 @@ public class PlayerLocalMotion : MonoBehaviour
         }
         changableAnimations = true;
         isDashing = false;
+<<<<<<< HEAD
+=======
+    }
+
+    public void HandleJumping()
+    {
+        isJumping = true;
+        dashPower = dashJumpPower;
+        jumpCount++;
+        if (jumpCount == 1)
+        {
+            jumpHeight = jumpHeightFirst;
+        }
+        else if (jumpCount == 2)
+        {
+            jumpHeight = jumpHeightSecond;
+        }
+        if (!(jumpCount > 2))
+        {
+            StopCoroutine("waitTillAnimationFinishesCoroutine");
+            Vector3 jumpingVelocity = moveDirection;
+            float gravityCalculate = Mathf.Sqrt(-2 * jumpHeight * gravityIntensity);
+            jumpingVelocity.y = gravityCalculate;
+            playerRigidbody.linearVelocity = jumpingVelocity;
+        }
+        if (!isDashing && jumpCount == 1)
+        {
+            inputControl.canJump = true;
+            ChangeAnimation("Jump");
+        }
+
+        else if (!isDashing && jumpCount == 2)
+        {
+            changableAnimations = true;
+            inputControl.canJump = false;
+            ChangeAnimation("Double Jump");
+        }
+        else if (jumpCount > 2)
+        {
+            jumpCount = 0;
+        }
+        changableAnimations = false;
+    }
+
+    public void HandleDash()
+    {
+        StartCoroutine("Dashing");
+        ChangeAnimation("Dashing");
+        changableAnimations = false;
+        isDashing = true;
+    }
+
+    IEnumerator Dashing()
+    {
+        float elapsed = 0f;
+        float duration = 0.4f;
+        float dashPowerCut = 0;
+        while (elapsed < duration)
+        {
+            // Dash gücünü yumuşakça artır
+            dashPowerCut = Mathf.Lerp(0f, dashPower, elapsed / duration);
+            playerRigidbody.AddForce(dashPowerCut * transform.forward.normalized);
+            elapsed += Time.deltaTime;
+            changableAnimations = true;
+            ChangeAnimation("Dashing", 0.4f);
+            yield return null;
+        }
+        changableAnimations = true;
+        isDashing = false;
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
     }
 
     private void ChangeAnimation(string animation, float crossFade = 0.2f, float seconds = 0)
@@ -347,6 +474,7 @@ public class PlayerLocalMotion : MonoBehaviour
 
         if (currentAnimation != animation && changableAnimations)
         {
+            Debug.Log(currentAnimation);
             currentAnimation = animation;
             animator.CrossFade(animation, crossFade);
         }
@@ -371,6 +499,10 @@ public class PlayerLocalMotion : MonoBehaviour
         changableAnimations = true;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
     private void StairControl()
     {
         RaycastHit lowerHit;
@@ -387,6 +519,16 @@ public class PlayerLocalMotion : MonoBehaviour
                     playerRigidbody.MovePosition(transform.position + stepSmooth * Vector3.up);
             }
         }
+<<<<<<< HEAD
+    }
+
+    IEnumerator IsStairCheck()
+    {
+        isStair = true;
+        yield return new WaitForSeconds(0.5f);
+        isStair = false;
+=======
+>>>>>>> d3c017c4f06d38b5dab8822abd57f3efcf07307a
     }
 
     IEnumerator IsStairCheck()
@@ -395,6 +537,9 @@ public class PlayerLocalMotion : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         isStair = false;
     }
+=======
+
+>>>>>>> 0faebdf8a139479fe17335025d219e1d08de4359
 
     void FixedUpdate()
     {
